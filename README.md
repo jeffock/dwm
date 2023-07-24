@@ -1,39 +1,57 @@
 # Requirements
 ___
-In order to build dwm you need the Xlib header files.
-
+In order to build dwm you should install packages: git, xorg-server, xorg-xinit, xorg-xrandr, xorg-xsetroot.
+```
+$ sudo pacman -S git xorg-server xorg-xinit xorg-randr xorg-xsetroot
+```
 
 # Installation
 ___
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+## Preparation
+___
+First create .xinitrc in the path /etc/X11/xinit/xinitrc (remember that linux is case sensitive for X11)
+```
+$ cp /etc/X11/xinit/xinitrc .xinitrc
+```
+Then replace the last 5 lines of .xinitrc with:
+```
+exec dwm
+```
+using your text editor (nano is default on Arch).
 
-Afterwards enter the following command to build and install dwm (if
+## Git clone
+___
+Git clone dwm into your user's default path (~).
+```
+$ git clone https://git.suckless.org/dwm
+```
+You may return an SSL error: if you do, run the following instead
+```
+$ git -c http.sslVerify=false clone https://git.suckless.org/dwm
+```
+
+## Compile dwm
+___
+Enter the following command to build and install dwm (if
 necessary as root):
 ```
     make clean install
 ```
-# Running dwm
-___
-Add the following line to your .xinitrc to start dwm using startx:
-```
-    exec dwm
-```
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
-```
-    DISPLAY=foo.bar:1 exec dwm
-```
-(This will start dwm on display :1 of the host foo.bar.)
 
-In order to display status info in the bar, you can do something
-like this in your .xinitrc:
+# Run dwm
+___
+Because we added `exec dwm` to .xinitrc we can run dwm with:
 ```
-    while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
-    do
-    	sleep 1
-    done &
-    exec dwm
+$ startx
 ```
+
+# Configuring and Building dwm to your liking
+___
+This fork of dwm is a basic build/rice of dwm. However, if you would like to make your own changes most settings will be found in config.h.
+
+If you want to patch (build) to your liking follow [suckless's guide](https://suckless.org/hacking/)
+
+If you plan on making your own build of dwm it is recommended that you use a main branch or trunk to do so, for more information follow [suckless's guide to patching in git](dwm.suckless.org/customisation/patches_in_git/)
+
 
 
