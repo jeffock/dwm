@@ -23,11 +23,11 @@ using your text editor (nano is default on Arch).
 ___
 Git clone dwm into your user's default path (~).
 ```
-$ git clone https://git.suckless.org/dwm
+$ git clone https://github.com/jeffock/dwm
 ```
 You may return an SSL error: if you do, run the following instead
 ```
-$ git -c http.sslVerify=false clone https://git.suckless.org/dwm
+$ git -c http.sslVerify=false clone https://github.com/jeffock/dwm
 ```
 
 ## Compile dwm
