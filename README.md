@@ -1,3 +1,10 @@
+# Overview of my dwm build
+___
+lorem
+## Screenshot
+___
+lorem
+
 # Requirements
 ___
 In order to build dwm you should install packages: git, xorg-server, xorg-xinit, xorg-xrandr, xorg-xsetroot.
