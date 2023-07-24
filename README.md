@@ -11,6 +11,7 @@ In order to build dwm you should install packages: git, xorg-server, xorg-xinit,
 ```
 $ sudo pacman -S git xorg-server xorg-xinit xorg-randr xorg-xsetroot
 ```
+You will also require the font used which can be found in config.h. Use fontconfig to set the font after downloading. 
 
 # Installation
 ___
